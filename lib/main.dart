@@ -26,10 +26,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, double> dataMap = {
-      "지방": 35.85,
+    Map<String, double> pie = {
+      "지방": 35.9,
       "탄수화물": 28.30,
       "단백질": 35.85,
+    };
+    Map<String, int> bar = {
+      "탄수화물": 24,
+      "단백질": 65,
+      "지방": 31,
+      "총 식이섬유": 48,
+      "콜레스테롤": 24,
+      "총 포화 지방산": 24,
     };
     return Scaffold(
       // backgroundColor: Colors.white,
@@ -89,7 +97,7 @@ class HomePage extends StatelessWidget {
                               color: Colors.grey[500],
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.65,
+                              width: MediaQuery.of(context).size.width * 0.60,
                               height: 250,
                               // color: Colors.yellow[100],
                               child: Padding(
@@ -204,7 +212,7 @@ class HomePage extends StatelessWidget {
                               color: Colors.grey[500],
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.65,
+                              width: MediaQuery.of(context).size.width * 0.6,
                               height: 250,
                               // color: Colors.red[100],
                               child: Padding(
@@ -319,7 +327,7 @@ class HomePage extends StatelessWidget {
                               color: Colors.grey[500],
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.65,
+                              width: MediaQuery.of(context).size.width * 0.6,
                               height: 250,
                               // color: Colors.yellow[100],
                               child: Padding(
@@ -412,12 +420,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.24,
+                                      0.75 /
+                                      100 *
+                                      bar['탄수화물']!,
                                   height: 25,
                                   color: Colors.indigoAccent[200],
                                   child: Text(
-                                    '24',
+                                    '${bar['탄수화물']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -425,8 +434,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.76,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['탄수화물']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -445,12 +455,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.65,
+                                      0.75 /
+                                      100 *
+                                      bar['단백질']!,
                                   height: 25,
                                   color: Colors.blue[600],
                                   child: Text(
-                                    '65',
+                                    '${bar['단백질']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -458,8 +469,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.35,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['단백질']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -478,12 +490,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.51,
+                                      0.75 /
+                                      100 *
+                                      bar['지방']!,
                                   height: 25,
                                   color: Colors.lightBlue[400],
                                   child: Text(
-                                    '51',
+                                    '${bar['지방']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -491,8 +504,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.49,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['지방']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -511,12 +525,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.24,
+                                      0.75 /
+                                      100 *
+                                      bar['총 식이섬유']!,
                                   height: 25,
                                   color: Colors.cyanAccent[700],
                                   child: Text(
-                                    '48',
+                                    '${bar['총 식이섬유']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -524,8 +539,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.76,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['총 식이섬유']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -544,12 +560,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.48,
+                                      0.75 /
+                                      100 *
+                                      bar['콜레스테롤']!,
                                   height: 25,
                                   color: Colors.tealAccent[400],
                                   child: Text(
-                                    '24',
+                                    '${bar['콜레스테롤']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -557,8 +574,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.52,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['콜레스테롤']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -577,12 +595,13 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.48,
+                                      0.75 /
+                                      100 *
+                                      bar['총 포화 지방산']!,
                                   height: 25,
                                   color: Colors.greenAccent[400],
                                   child: Text(
-                                    '24',
+                                    '${bar['총 포화 지방산']}',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                     textAlign: TextAlign.right,
@@ -590,8 +609,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Container(
                                   width: MediaQuery.of(context).size.width *
-                                      0.75 *
-                                      0.52,
+                                      0.75 /
+                                      100 *
+                                      (100 - bar['총 포화 지방산']!),
                                   height: 25,
                                   color: Colors.grey[200],
                                 ),
@@ -604,7 +624,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 80),
-                    PieChart(dataMap: dataMap)
+                    PieChart(dataMap: pie)
                   ],
                 ),
               ),
